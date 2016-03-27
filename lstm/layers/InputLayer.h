@@ -12,12 +12,13 @@ public:
      *
      * @param numInputs       Number of Inmputs
      */
-    InputLayer(int numInputs);
+    InputLayer();
     /**
      * Destructor
      */
     virtual ~InputLayer();
 
+	virtual void setNeurons(int numNeurons);
 
     virtual void setInput(int id, double value);
 
