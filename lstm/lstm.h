@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "layers/InputLayer.h"
+#include "layers/LstmLayer.h"
 
 class LSTM
 {
@@ -12,14 +13,15 @@ public:
      *
      * @param numInputs       Number of Inmputs
      */
-    LSTM(int inputs, int lstms, int outputs);
+    LSTM(int inputs, int lstms, int outputs, float bias);
     /**
      * Destructor
      */
     virtual ~LSTM();
     
-protected:
+private:
 	InputLayer _inputLayer;
+	LstmLayer _lstmLayer;
 	int _inputs, _lstms, _outputs;
 };
 

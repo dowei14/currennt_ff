@@ -11,6 +11,6 @@ int main(int argc, const char *argv[]){
 	for (int i=0;i<5;i++) test.setInput(i,i);
 	for (int i=0;i<5;i++) cout<<test.getInput(i)<<" ";
 */	
-    LSTM lstm(1,2,3);
+    LSTM lstm(1,2,3, 1.0);
 	cout<<endl<<endl<<endl<<"--- done ---"<<endl;
 }
