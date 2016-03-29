@@ -22,13 +22,18 @@ public:
      */
     virtual ~LSTM();
     
-    virtual InputLayer getInputLayer() {return _inputLayer;}
-    virtual LstmLayer getLstmLayer() {return _lstmLayer;}    
+    virtual void setInput(std::vector<float> inVec);
+    virtual void step();
+    virtual std::vector<float> getOutput();
+    virtual int getState();    
+    
+    virtual InputLayer getInputLayer() {return inputLayer;}
+    virtual LstmLayer getLstmLayer() {return lstmLayer;}    
     
 private:
-	InputLayer _inputLayer;
-	LstmLayer _lstmLayer;
-	int _inputs, _lstms, _outputs;
+	InputLayer inputLayer;
+	LstmLayer lstmLayer;
+	int inputs, lstms, outputs;
 };
 
 

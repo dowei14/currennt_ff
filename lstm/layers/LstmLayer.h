@@ -21,10 +21,15 @@ public:
     virtual ~LstmLayer();
     
     virtual void setup(int _numInputs, int _numBlocksInLayer, float _bias);
+    virtual void setInputs(std::vector<float> _inputs);
+	virtual void step();  
 
     
 private:    
 	std::vector<LstmBlock> blocks;
+	std::vector<float> inputs;
+	std::vector<float> outputs;
+	int numBlocks;
 };
 
 

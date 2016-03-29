@@ -20,12 +20,16 @@ public:
 
 	virtual void setNeurons(int numNeurons);
 
-    virtual void setInput(int id, double value);
+    virtual void setInput(int id, float value);
 
-    virtual double getInput(int id);
+    virtual float getInput(int id);
+
+    virtual std::vector<float> getInputVec();
+    virtual void setInputs(std::vector<float> values);
     
-protected:    
-	std::vector<double> neurons;
+protected:
+	int numNeurons;
+	std::vector<float> neurons;
 };
 
 
