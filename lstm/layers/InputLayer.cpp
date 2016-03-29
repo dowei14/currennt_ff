@@ -2,7 +2,6 @@
 #include <iostream>
 
 InputLayer::InputLayer(){
-
 }
 
 InputLayer::~InputLayer(){

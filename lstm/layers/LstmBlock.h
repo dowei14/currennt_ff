@@ -64,6 +64,8 @@ public:
      * get output
      */ 
 	virtual float getOutput();
+	
+	virtual float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights);
 
     
 private:    

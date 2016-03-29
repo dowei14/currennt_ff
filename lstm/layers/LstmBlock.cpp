@@ -6,7 +6,7 @@
     typedef activation_functions::Tanh     cell_input_act_fn_t;
     typedef activation_functions::Tanh     cell_output_act_fn_t;
 
-float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights){
+float LstmBlock::sumVecWeight(std::vector<float> inputVec, std::vector<float> weights){
 	float sum = 0.0;
 	if (inputVec.size() != weights.size()) {
 		std::cout<<"Input Vector and Weights Vector sizes dont match"<<std::endl;

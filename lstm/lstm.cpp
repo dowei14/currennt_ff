@@ -22,7 +22,12 @@ void LSTM::setInput(std::vector<float> inVec){
 void LSTM::step(){
 	lstmLayer.setInputs(inputLayer.getInputVec());
 	lstmLayer.step();
-	/*TODO: Add SoftMax Layer */
+	if (outputs ==1){
+		/*TODO: Add FF Logistic Layer */
+	} else {
+		/*TODO: Add SoftMax Layer */
+	}
+	
 }
 
 std::vector<float> LSTM::getOutput(){
@@ -30,5 +35,9 @@ std::vector<float> LSTM::getOutput(){
 }
 
 int LSTM::getState(){
-/* TODO: get max of SoftMax as state output */
+/* TODO: get softmax output */
+}
+
+int LSTM::getBinary(){
+/* TODO: get logistic output */
 }

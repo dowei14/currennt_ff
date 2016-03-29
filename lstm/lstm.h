@@ -4,6 +4,8 @@
 #include <vector>
 #include "layers/InputLayer.h"
 #include "layers/LstmLayer.h"
+#include "layers/SoftMaxLayer.h"
+#include "layers/FeedForwardLayer.h"
 
 class LSTM
 {
@@ -25,15 +27,18 @@ public:
     virtual void setInput(std::vector<float> inVec);
     virtual void step();
     virtual std::vector<float> getOutput();
-    virtual int getState();    
+    virtual int getState();
+    virtual int getBinary();    
     
     virtual InputLayer getInputLayer() {return inputLayer;}
     virtual LstmLayer getLstmLayer() {return lstmLayer;}    
     
 private:
+	int inputs, lstms, outputs;
 	InputLayer inputLayer;
 	LstmLayer lstmLayer;
-	int inputs, lstms, outputs;
+	SoftMaxLayer softMaxLayer;	
+	FeedForwardLayer feedForwardLayer;
 };
 
 

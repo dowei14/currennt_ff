@@ -2,7 +2,6 @@
 #include <iostream>
 
 LstmLayer::LstmLayer(){
-
 }
 
 LstmLayer::~LstmLayer(){
