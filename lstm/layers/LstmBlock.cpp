@@ -1,5 +1,22 @@
 #include "LstmBlock.h"
 #include <iostream>
+#include "../activation_functions/activation_functions.cpp"
+
+    typedef activation_functions::Logistic gate_act_fn_t;
+    typedef activation_functions::Tanh     cell_input_act_fn_t;
+    typedef activation_functions::Tanh     cell_output_act_fn_t;
+
+float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights){
+	float sum = 0.0;
+	if (inputVec.size() != weights.size()) {
+		std::cout<<"Input Vector and Weights Vector sizes dont match"<<std::endl;
+		return -1;
+	}
+	for(std::vector<float>::size_type i = 0; i != inputVec.size(); i++) {
+    	sum += inputVec[i]*weights[i];
+    }
+	return sum;
+}
 
 LstmBlock::LstmBlock(){
 
@@ -48,7 +65,38 @@ void LstmBlock::setInternal(std::vector<float> internal){
 }
 
 void LstmBlock::step(){
-// YOU ARE HERE
+	// calculate activation sums
+	float aIg = sumVecWeight(inputsPreceding,precedingToInput) 
+				+ sumVecWeight(inputsInternal,internalToInput) 
+				+ c*peepCellToInput
+				+ bias*biasToInput;
+	float aFg = sumVecWeight(inputsPreceding,precedingToForget) 
+				+ sumVecWeight(inputsInternal,internalToForget) 
+				+ c*peepCellToForget
+				+ bias*biasToForget;
+
+	float aNi = sumVecWeight(inputsPreceding,precedingToNet) 
+				+ sumVecWeight(inputsInternal,internalToNet) 
+				+ bias*biasToNet;
+	// apply activation function
+	z = cell_input_act_fn_t::fn(aNi);
+	i = gate_act_fn_t      ::fn(aIg);
+	f = gate_act_fn_t      ::fn(aFg);	
+
+	// calculate new cell state
+	c = i*z + f*c;
+	
+	// calculate output Gate Activation
+	float aOg = sumVecWeight(inputsPreceding,precedingToOutput) 
+			+ sumVecWeight(inputsInternal,internalToOutput) 
+			+ c*peepCellToOutput
+			+ bias*biasToOutput;
+
+	o = gate_act_fn_t::fn(aOg);
+	
+	// calculate block output
+	y = cell_output_act_fn_t::fn(c) * o;
+
 }
 
 float LstmBlock::getOutput(){

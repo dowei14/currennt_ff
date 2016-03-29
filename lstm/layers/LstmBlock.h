@@ -63,7 +63,7 @@ public:
     /**
      * get output
      */ 
-	virtual void getOutput();
+	virtual float getOutput();
 
     
 private:    
