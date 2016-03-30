@@ -67,17 +67,7 @@ public:
 	
 	virtual float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights);
 
-    
-private:    
-//	std::vector<double> neurons;
-	
-	int numInputs;
-	int numBlocksInLayer;
-	
-	float bias;
-	float i,z,f,c,o,y; // naming convention from "LSTM: A Search Space Odyssy"
-	std::vector<float> inputsPreceding;
-	std::vector<float> inputsInternal; // from this layer, just to stay with the convention
+	/* TODO: move to private create functions */
 	// weight vectors
 	std::vector<float> precedingToNet;
 	std::vector<float> precedingToInput;
@@ -97,6 +87,19 @@ private:
 	float peepCellToInput;
 	float peepCellToForget;
 	float peepCellToOutput;	
+
+    
+private:    
+//	std::vector<double> neurons;
+	
+	int numInputs;
+	int numBlocksInLayer;
+	
+	float bias;
+	float i,z,f,c,o,y; // naming convention from "LSTM: A Search Space Odyssy"
+	std::vector<float> inputsPreceding;
+	std::vector<float> inputsInternal; // from this layer, just to stay with the convention
+
 
 	
 };

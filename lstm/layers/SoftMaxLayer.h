@@ -32,12 +32,15 @@ public:
 	virtual int getOutput() {return output;}
 	virtual std::vector<float> getOutputVec();
 	virtual float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights);
-    
+
+	/* TODO: move to private and functions */	
+	std::vector<Neuron> neurons;    
+
 protected:
 	int numNeurons, numInputs;
 	int output;
 	float bias;
-	std::vector<Neuron> neurons;
+
 	std::vector<float> inputs;
 };
 

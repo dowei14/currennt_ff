@@ -10,13 +10,20 @@ void printVec(std::vector<float> in){
 
 int main(int argc, const char *argv[]){
 	cout<<"--- start ---"<<endl<<endl<<endl;
+	
+	LSTM lstm(8,2,8, 1.0);
+	std::string filename = "network_multi_weights_2.jsn";
+	lstm.loadWeights(filename.c_str());
+/*
+*	simple test without weights
+*
 	int inputs = 10;
-	int lstms = 1;
+	int lstms = 10;
 
 	std::vector<float> inVec;
 	for (int i=0;i<inputs;i++) inVec.push_back((float)i);
     
-    
+   
 	int outputs = 1;    
     LSTM lstm(inputs,lstms,outputs, 1.0);
     lstm.setInput(inVec);
@@ -31,7 +38,7 @@ int main(int argc, const char *argv[]){
     std::cout<<"Multi Vector: ";
 	printVec(lstm2.getOutput());
 	std::cout<<"Multi Class: "<<lstm2.getState()<<std::endl;    
-
+*/
     
 	cout<<endl<<endl<<endl<<"--- done ---"<<endl;
 }

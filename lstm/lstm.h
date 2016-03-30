@@ -2,6 +2,7 @@
 #define LSTM_H
 
 #include <vector>
+#include <string>
 #include "layers/InputLayer.h"
 #include "layers/LstmLayer.h"
 #include "layers/SoftMaxLayer.h"
@@ -23,6 +24,11 @@ public:
      * Destructor
      */
     virtual ~LSTM();
+    
+    /**
+     * load weights from CURRENNT jsn file
+     */
+    virtual void loadWeights(std::string filename);
     
     virtual void setInput(std::vector<float> inVec);
     virtual void step();

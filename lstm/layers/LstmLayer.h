@@ -25,10 +25,10 @@ public:
 	virtual void step();
 	virtual std::vector<float> getOutputs();
 
-    
+	/*TODO: move to private and create functions*/
+	std::vector<LstmBlock> blocks;    
 private:    
-	std::vector<LstmBlock> blocks;
-//	std::vector<float> inputs;
+
 	std::vector<float> outputs;
 	int numBlocks;
 };

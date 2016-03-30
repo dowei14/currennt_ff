@@ -15,7 +15,6 @@ void LstmLayer::setup(int _numInputs, int _numBlocksInLayer, float _bias){
 		blocks.push_back(block);
 		outputs.push_back(0.0);
 	}
-	
 }
 
 void LstmLayer::setInputs(std::vector<float> _inputs){
