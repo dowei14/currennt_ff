@@ -40,3 +40,9 @@ start
 *.depend
 .gitignore~
 *.msg
+*.jsn
+*.hpp~
+Makefile~
+Makefile.conf~
+.Rhistory
+README.md~
