@@ -13,6 +13,7 @@ void LstmLayer::setup(int _numInputs, int _numBlocksInLayer, float _bias){
 		LstmBlock block;
 		block.setup(_numInputs,_numBlocksInLayer,_bias);
 		blocks.push_back(block);
+		outputs.push_back(0.0);
 	}
 	
 }
@@ -30,3 +31,8 @@ void LstmLayer::step(){
 		outputs[i] = blocks[i].getOutput();
 	}
 }
+
+std::vector<float> LstmLayer::getOutputs(){
+	return outputs;
+}
+

@@ -26,8 +26,17 @@ public:
     
     virtual void setInput(std::vector<float> inVec);
     virtual void step();
+    /**
+     * Output of Softmax from Multiclass Classification
+     */
     virtual std::vector<float> getOutput();
+    /**
+     * argmax(softMax output)
+     */
     virtual int getState();
+    /**
+     * out from FF Logistic Layer in Binary Classification
+     */
     virtual int getBinary();    
     
     virtual InputLayer getInputLayer() {return inputLayer;}

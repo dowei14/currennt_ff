@@ -9,6 +9,8 @@ LSTM::LSTM(int _inputs, int _lstms, int _outputs, float _bias){
 	outputs = _outputs;
 	inputLayer.setNeurons(_inputs);
 	lstmLayer.setup(_inputs,_lstms, _bias);
+	softMaxLayer.setNeurons(_outputs,_lstms,_bias);
+	feedForwardLayer.setNeurons(1, _lstms, _bias);
 }
 
 LSTM::~LSTM(){
@@ -23,21 +25,22 @@ void LSTM::step(){
 	lstmLayer.setInputs(inputLayer.getInputVec());
 	lstmLayer.step();
 	if (outputs ==1){
-		/*TODO: Add FF Logistic Layer */
+		feedForwardLayer.setInputs(lstmLayer.getOutputs());
+		feedForwardLayer.step();
 	} else {
-		/*TODO: Add SoftMax Layer */
+		softMaxLayer.setInputs(lstmLayer.getOutputs());
+		softMaxLayer.step();
 	}
-	
 }
 
 std::vector<float> LSTM::getOutput(){
-/* TODO: get Output of SoftMax Layer */
+	return softMaxLayer.getOutputVec();
 }
 
 int LSTM::getState(){
-/* TODO: get softmax output */
+	return softMaxLayer.getOutput();
 }
 
 int LSTM::getBinary(){
-/* TODO: get logistic output */
+	return feedForwardLayer.getOutput();
 }
