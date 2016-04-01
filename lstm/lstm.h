@@ -26,6 +26,10 @@ public:
     virtual ~LSTM();
     
     /**
+     * reset interal state values
+     */
+    virtual void reset();
+    /**
      * load weights from CURRENNT jsn file
      */
     virtual void loadWeights(std::string filename);

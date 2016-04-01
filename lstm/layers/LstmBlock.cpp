@@ -26,6 +26,9 @@ LstmBlock::LstmBlock(){
 LstmBlock::~LstmBlock(){
 }
 
+void LstmBlock::reset(){
+	c=0.0;
+}
 
 void LstmBlock::setup(int _numInputs, int _numBlocksInLayer, float _bias){
 

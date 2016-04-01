@@ -67,6 +67,8 @@ public:
 	
 	virtual float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights);
 
+	virtual void reset();
+
 	/* TODO: move to private create functions */
 	// weight vectors
 	std::vector<float> precedingToNet;

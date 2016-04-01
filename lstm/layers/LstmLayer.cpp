@@ -7,6 +7,12 @@ LstmLayer::LstmLayer(){
 LstmLayer::~LstmLayer(){
 }
 
+void LstmLayer::reset(){
+	for (unsigned int i=0;i<outputs.size();i++) {
+		outputs[i]=0.0;
+		blocks[i].reset();
+	}
+}
 void LstmLayer::setup(int _numInputs, int _numBlocksInLayer, float _bias){
 	numBlocks = _numBlocksInLayer;
 	for (int i=0;i<_numBlocksInLayer;i++){

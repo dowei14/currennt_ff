@@ -18,6 +18,9 @@ LSTM::LSTM(int _inputs, int _lstms, int _outputs, float _bias){
 LSTM::~LSTM(){
 }
 
+void LSTM::reset(){
+	lstmLayer.reset();
+}
 
 void LSTM::setInput(std::vector<float> inVec){
 	inputLayer.setInputs(inVec);
@@ -205,5 +208,5 @@ void LSTM::loadWeights(std::string filename){
 	}
 		
 //	std::cout<<weightID<<" of "<<weights.size()<<std::endl;
-	std::cout<<"Weights loaded"<<std::endl;
+//	std::cout<<"Weights loaded"<<std::endl;
 }

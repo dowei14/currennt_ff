@@ -19,7 +19,7 @@ public:
      * Destructor
      */
     virtual ~LstmLayer();
-    
+    virtual void reset();
     virtual void setup(int _numInputs, int _numBlocksInLayer, float _bias);
     virtual void setInputs(std::vector<float> _inputs);
 	virtual void step();
