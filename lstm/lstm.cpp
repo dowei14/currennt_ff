@@ -5,7 +5,13 @@
 #include <fstream>
 #include <cstdlib>
 
-LSTM::LSTM(int _inputs, int _lstms, int _outputs, float _bias){
+LSTM::LSTM(){
+}
+
+LSTM::~LSTM(){
+}
+
+void LSTM::setup(int _inputs, int _lstms, int _outputs, float _bias){
 	inputs = _inputs;
 	lstms = _lstms;
 	outputs = _outputs;
@@ -13,9 +19,6 @@ LSTM::LSTM(int _inputs, int _lstms, int _outputs, float _bias){
 	lstmLayer.setup(_inputs,_lstms, _bias);
 	softMaxLayer.setNeurons(_outputs,_lstms,_bias);
 	feedForwardLayer.setNeurons(1, _lstms, _bias);
-}
-
-LSTM::~LSTM(){
 }
 
 void LSTM::reset(){

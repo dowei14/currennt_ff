@@ -13,17 +13,22 @@ class LSTM
 public:
     /**
      * Constructs the Layer
+     */
+    LSTM();
+    /**
+     * Destructor
+     */
+    virtual ~LSTM();
+    
+    /**
+     * Sets up Layer
      *
      * @param inputs       Number of Inputs
      * @param lstms        Number of LSTM Blocks in LSTM Layer     
      * @param outputs      Number of Outputs
      * @param bias		   bias value
      */
-    LSTM(int inputs, int lstms, int outputs, float bias);
-    /**
-     * Destructor
-     */
-    virtual ~LSTM();
+    virtual void setup(int _inputs, int _lstms, int _outputs, float _bias);
     
     /**
      * reset interal state values
