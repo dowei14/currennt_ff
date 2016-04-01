@@ -27,11 +27,11 @@ public:
 
 	virtual void setNeurons(int _numNeurons, int _numInputs, float _bias);
 	
-	virtual void setInputs(std::vector<float> _inputs);
+	virtual void setInputs(std::vector<float> values);
 
-	virtual void setWeights(std::vector<float> _inputs);
+	virtual void setWeights(std::vector<float> values);
 	virtual void step();
-	virtual int getOutput() {return output;}
+	virtual float getOutput() {return output;}
 	virtual float sumVecWeight(std::vector<float> inputVec, std::vector<float> weights);
 
 	/*TODO: move to private and create functions*/    
@@ -39,7 +39,7 @@ public:
    
 protected:
 	int numNeurons, numInputs;
-	int output;
+	float output;
 	float bias;
 	std::vector<float> inputs;
 };

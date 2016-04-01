@@ -39,7 +39,7 @@ void SoftMaxLayer::setNeurons(int _numNeurons, int _numInputs, float _bias){
 
 
 void SoftMaxLayer::setInputs(std::vector<float> values){
-	for (int i=0; i<numNeurons;i++) inputs[i] = values[i];
+	for (int i=0; i<numInputs;i++) inputs[i] = values[i];
 }
 
 void SoftMaxLayer::setWeights(std::vector<float> values){

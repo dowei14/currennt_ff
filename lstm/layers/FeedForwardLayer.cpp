@@ -40,7 +40,7 @@ void FeedForwardLayer::setNeurons(int _numNeurons, int _numInputs, float _bias){
 
 
 void FeedForwardLayer::setInputs(std::vector<float> values){
-	for (int i=0; i<numNeurons;i++) inputs[i] = values[i];
+	for (int i=0; i<numInputs;i++) inputs[i] = values[i];
 }
 
 void FeedForwardLayer::setWeights(std::vector<float> values){
@@ -57,6 +57,7 @@ void FeedForwardLayer::step(){
 		neurons[i].activation = sumVecWeight(inputs,neurons[i].weights);
 		neurons[i].activation += bias*neurons[i].biasWeight;
 	}
+
 /* TODO: this so far is only for 1 output*/	
 	output = activation_functions::Logistic::fn(neurons[0].activation);
 }

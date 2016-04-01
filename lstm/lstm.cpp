@@ -43,7 +43,7 @@ int LSTM::getState(){
 	return softMaxLayer.getOutput();
 }
 
-int LSTM::getBinary(){
+float LSTM::getBinary(){
 	return feedForwardLayer.getOutput();
 }
 
@@ -54,6 +54,7 @@ void LSTM::loadWeights(std::string filename){
 	std::vector<float> weights;
 	while (std::getline(infile, line))
 	{
+		//std::cout <<line.c_str() << '\n';
 		if (line.find(".") != std::string::npos) {
 			//std::cout <<std::atof(line.c_str()) << '\n';
 			weights.push_back(std::atof(line.c_str()));
@@ -203,5 +204,6 @@ void LSTM::loadWeights(std::string filename){
 		}
 	}
 		
-	std::cout<<weightID<<" of "<<weights.size()<<std::endl;
+//	std::cout<<weightID<<" of "<<weights.size()<<std::endl;
+	std::cout<<"Weights loaded"<<std::endl;
 }

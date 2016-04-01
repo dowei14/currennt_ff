@@ -19,6 +19,7 @@ float LstmBlock::sumVecWeight(std::vector<float> inputVec, std::vector<float> we
 }
 
 LstmBlock::LstmBlock(){
+	c=0.0;
 
 }
 
@@ -84,8 +85,7 @@ void LstmBlock::step(){
 	f = gate_act_fn_t      ::fn(aFg);	
 
 	// calculate new cell state
-	c = i*z + f*c;
-	
+	c = (i*z) + (f*c);
 	// calculate output Gate Activation
 	float aOg = sumVecWeight(inputsPreceding,precedingToOutput) 
 			+ sumVecWeight(inputsInternal,internalToOutput) 
@@ -96,6 +96,7 @@ void LstmBlock::step(){
 	
 	// calculate block output
 	y = cell_output_act_fn_t::fn(c) * o;
+	//std::cout<<y<<std::endl;
 
 }
 

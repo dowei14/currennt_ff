@@ -43,7 +43,7 @@ public:
     /**
      * out from FF Logistic Layer in Binary Classification
      */
-    virtual int getBinary();    
+    virtual float getBinary();    
     
     virtual InputLayer getInputLayer() {return inputLayer;}
     virtual LstmLayer getLstmLayer() {return lstmLayer;}    
